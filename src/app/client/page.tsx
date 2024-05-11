@@ -5,13 +5,13 @@ import { useRef } from "react";
 import { toast } from "sonner";
 
 export default function ClientPage() {
-	const formRef = useRef<HTMLFormElement>(null);
+	const formRef = useRef<HTMLFormElement>(null); // create a ref to the form
 
 	return (
 		<main className="flex h-screen items-center justify-center p-24">
 			<div className="flex justify-center items-center">
 				<form
-					ref={formRef}
+					ref={formRef} // set the ref to the form
 					action={async (formData) => {
 						const data = await createProduct(formData);
 						const productName = data.name;
@@ -25,7 +25,7 @@ export default function ClientPage() {
 								className: "bg-green-500 border-0 text-white",
 								icon: "🎉",
 							});
-							formRef.current?.reset();
+							formRef.current?.reset(); // reset the form
 						} else {
 							toast.error("", {
 								description: `${data}`,
